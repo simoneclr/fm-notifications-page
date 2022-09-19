@@ -9,7 +9,7 @@ enum NotificationType {
 	PICTURE_COMMENT
 }
 
-interface Notification {
+interface MyNotification {
 	id: EntityId;
 	type: NotificationType;
 	from: EntityId;
@@ -17,26 +17,39 @@ interface Notification {
 	isNew: boolean;
 }
 
-interface PostReactionNotification extends Notification {
+interface PostReactionNotification extends MyNotification {
 	// In a real app, this would be an id pointing to the post in question
 	// That is out of the scope of this project; for simplicty, put the name directly here
 	postTitle: string;
 }
 
-interface FollowNotification extends Notification {}
+interface FollowNotification extends MyNotification {}
 
-interface GroupNotification extends Notification {
+interface GroupNotification extends MyNotification {
 	// In a real app, this would be an id pointing to the group in question
 	// That is out of the scope of this project; for simplicty, put the name directly here
 	groupName: string;
 }
 
-interface MessageNotification extends Notification {
+interface MessageNotification extends MyNotification {
 	message: string;
 }
 
-interface PictureCommentNotification extends Notification {
+interface PictureCommentNotification extends MyNotification {
 	// In a real app, this would be an id pointing to the picture in question
 	// That is out of the scope of this project; for simplicity, put the img url directly here
 	picture: string;
+}
+
+export {
+	NotificationType
+}
+
+export type {
+	MyNotification,
+	PostReactionNotification,
+	FollowNotification,
+	GroupNotification,
+	MessageNotification,
+	PictureCommentNotification
 }

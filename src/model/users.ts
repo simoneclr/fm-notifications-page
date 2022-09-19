@@ -5,3 +5,7 @@ interface User {
 	name: string;
 	pfp: string;
 }
+
+export type {
+	User
+}
