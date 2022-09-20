@@ -1,7 +1,9 @@
 import { EntityId, nanoid } from "@reduxjs/toolkit";
+import { sub } from "date-fns";
 
 import { User } from "../model/users"
 import { FollowNotification, GroupNotification, MessageNotification, MyNotification, NotificationType, PictureCommentNotification, PostReactionNotification } from "../model/notifications";
+
 
 const mockUsers: User[] = [
 	{
@@ -46,7 +48,7 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.POST_REACTION,
 		from: "markwebber",
-		date: "1m ago",
+		date: sub(new Date(), {minutes: 1}).toISOString(),
 		isNew: true,
 		postTitle: "My first tournament today!"
 	} as PostReactionNotification,
@@ -54,14 +56,14 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.FOLLOW,
 		from: "angelagray",
-		date: "5m ago",
+		date: sub(new Date(), {minutes: 5}).toISOString(),
 		isNew: true,
 	} as FollowNotification,
 	{
 		id: nanoid(),
 		type: NotificationType.GROUP_JOINED,
 		from: "jacobthompson",
-		date: "1 day ago",
+		date: sub(new Date(), {days: 1}).toISOString(),
 		isNew: true,
 		groupName: "Chess Club"
 	} as GroupNotification,
@@ -69,7 +71,7 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.DM_RECEIVED,
 		from: "rizkyhasanuddin",
-		date: "5 days ago",
+		date: sub(new Date(), {days: 5}).toISOString(),
 		isNew: false,
 		message: "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and	I'm already having lots of fun and improving my game."
 	} as MessageNotification,
@@ -77,7 +79,7 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.PICTURE_COMMENT,
 		from: "kimberlysmith",
-		date: "1 week ago",
+		date: sub(new Date(), {weeks: 1}).toISOString(),
 		isNew: false,
 		picture: "image-chess.webp"
 	} as PictureCommentNotification,
@@ -85,7 +87,7 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.POST_REACTION,
 		from: "nathanpeterson",
-		date: "2 weeks ago",
+		date: sub(new Date(), {weeks: 2}).toISOString(),
 		isNew: false,
 		postTitle: "5 end-game strategies to increase your win rate"
 	} as PostReactionNotification,	
@@ -93,7 +95,7 @@ const mockNotifications: MyNotification[] = [
 		id: nanoid(),
 		type: NotificationType.GROUP_LEFT,
 		from: "annakim",
-		date: "2 weeks ago",
+		date: sub(new Date(), {weeks: 2}).toISOString(),
 		isNew: false,
 		groupName: "Chess Club"
 	} as GroupNotification,
