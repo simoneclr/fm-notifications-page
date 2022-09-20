@@ -1,4 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 import { MyNotification } from "../../model/notifications";
 
@@ -13,3 +14,8 @@ const notificationsSlice = createSlice({
 })
 
 export default notificationsSlice.reducer
+
+export const {
+	selectById: selectNotificationById,
+	selectIds: selectNotificationsIds
+} = notificationsAdapter.getSelectors((state: RootState) => state.notifications)
