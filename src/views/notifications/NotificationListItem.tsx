@@ -2,6 +2,7 @@ import { EntityId } from "@reduxjs/toolkit";
 import { useAppSelector } from "../../store/hooks";
 
 import { selectNotificationById } from "../../store/notifications/notificationsSlice";
+import UserName from "../users/UserName";
 import NotificationCard from "./NotificationCard";
 
 interface Props {
@@ -18,7 +19,7 @@ function NotificatinsListItem({notificationId}: Props) {
 
 		<li>
 			<NotificationCard notificationId={notification.id}>				
-				{notification => <span>{notification.from}</span>} 
+				{notification => <UserName userId={notification.from}/>} 
 			</NotificationCard>
 		</li>
 

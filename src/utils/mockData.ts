@@ -4,42 +4,49 @@ import { sub } from "date-fns";
 import { User } from "../model/users"
 import { FollowNotification, GroupNotification, MessageNotification, MyNotification, NotificationType, PictureCommentNotification, PostReactionNotification } from "../model/notifications";
 
+import AVATAR_ANGELA_GRAY from "../assets/images/avatar-angela-gray.webp"
+import AVATAR_ANNA_KIM from "../assets/images/avatar-anna-kim.webp"
+import AVATAR_JACOB_THOMPSON from "../assets/images/avatar-jacob-thompson.webp"
+import AVATAR_KIMBERLY_SMITH from "../assets/images/avatar-kimberly-smith.webp"
+import AVATAR_MARK_WEBBER from "../assets/images/avatar-mark-webber.webp"
+import AVATAR_NATHAN_PETERSON from "../assets/images/avatar-nathan-peterson.webp"
+import AVATAR_RIZKY_HASANUDDIN from "../assets/images/avatar-rizky-hasanuddin.webp"
 
 const mockUsers: User[] = [
 	{
 		id: "angelagray",
 		name: "Angela Gray",
-		pfp: "avatar-angela-gray.webp"
+		pfp: AVATAR_ANGELA_GRAY
 	},
 	{
 		id: "annakim",
 		name: "Anna Kim",
-		pfp: "avatar-anna-kim.webp"
+		pfp: AVATAR_ANNA_KIM
 	},
 	{
 		id: "jacobthompson",
 		name: "Jacob Thompson",
-		pfp: "avatar-jacob-thompson.webp"
+		pfp: AVATAR_JACOB_THOMPSON
 	},
 	{
 		id: "kimberlysmith",
 		name: "Kimberly Smith",
-		pfp: "avatar-kimberly-smith.webp"
+		pfp: AVATAR_KIMBERLY_SMITH
 	},
 	{
 		id: "markwebber",
 		name: "Mark Webber",
-		pfp: "avatar-mark-webber.webp"
+		pfp: AVATAR_MARK_WEBBER
 	},
 	{
 		id: "nathanpeterson",
 		name: "Nathan Peterson",
-		pfp: "avatar-nathan-peterson.webp"
+		pfp: AVATAR_NATHAN_PETERSON
 	},
 	{
 		id: "rizkyhasanuddin",
 		name: "Rizky Hasanuddin",
-		pfp: "avatar-rizky-hasanuddin.webp"
+		pfp: AVATAR_RIZKY_HASANUDDIN
 	}
 ]
 
