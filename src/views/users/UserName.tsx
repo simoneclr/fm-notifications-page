@@ -14,9 +14,9 @@ function UserName({userId}: Props) {
 	return (
 		user ? 
 
-		<>
+		<span className="text-veryDarkBlue font-extrabold">
 			{user.name}
-		</>
+		</span>
 
 		: null
 	)

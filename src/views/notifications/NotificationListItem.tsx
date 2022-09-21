@@ -1,9 +1,15 @@
 import { EntityId } from "@reduxjs/toolkit";
 import { useAppSelector } from "../../store/hooks";
 
+import { MyNotification, NotificationType } from "../../model/notifications";
 import { selectNotificationById } from "../../store/notifications/notificationsSlice";
-import UserName from "../users/UserName";
-import NotificationCard from "./cards/NotificationCard";
+import { 
+	MessageNotificationCard, 
+	FollowNotificationCard, 
+	GroupNotificationCard,
+	PictureNotificationCard,
+	ReactionNotificationCard
+} from "./cards"
 
 interface Props {
 	notificationId: EntityId;
@@ -14,13 +20,26 @@ function NotificatinsListItem({notificationId}: Props) {
 
 	const notification = useAppSelector(state => selectNotificationById(state, notificationId))
 
+	const getNotificationCard = (notification: MyNotification) => {
+
+		const {id, type} = notification
+
+		switch (type) {
+			case NotificationType.DM_RECEIVED: return <MessageNotificationCard notificationId={id}/>;
+			case NotificationType.FOLLOW: return <FollowNotificationCard notificationId={id}/>;
+			case NotificationType.GROUP_JOINED:
+			case NotificationType.GROUP_LEFT: return <GroupNotificationCard notificationId={id}/>;
+			case NotificationType.PICTURE_COMMENT: return <PictureNotificationCard notificationId={id}/>;
+			case NotificationType.POST_REACTION: return <ReactionNotificationCard notificationId={id}/>;
+			default: return null;
+		}
+	}
+
 	return (
 		notification ?
 
 		<li>
-			<NotificationCard notificationId={notification.id}>				
-				{notification => <UserName userId={notification.from}/>} 
-			</NotificationCard>
+			{getNotificationCard(notification)}
 		</li>
 
 		: null
