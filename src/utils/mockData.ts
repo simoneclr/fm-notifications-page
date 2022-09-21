@@ -12,6 +12,8 @@ import AVATAR_MARK_WEBBER from "../assets/images/avatar-mark-webber.webp"
 import AVATAR_NATHAN_PETERSON from "../assets/images/avatar-nathan-peterson.webp"
 import AVATAR_RIZKY_HASANUDDIN from "../assets/images/avatar-rizky-hasanuddin.webp"
 
+import PICTURE_CHESS from "../assets/images/image-chess.webp"
+
 const mockUsers: User[] = [
 	{
 		id: "angelagray",
@@ -88,7 +90,7 @@ const mockNotifications: MyNotification[] = [
 		from: "kimberlysmith",
 		date: sub(new Date(), {weeks: 1}).toISOString(),
 		isNew: false,
-		picture: "image-chess.webp"
+		picture: PICTURE_CHESS
 	} as PictureCommentNotification,
 	{
 		id: nanoid(),
