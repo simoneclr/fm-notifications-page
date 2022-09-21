@@ -2,7 +2,7 @@ import { EntityId } from "@reduxjs/toolkit";
 import { useAppSelector } from "../../../store/hooks";
 import { selectNotificationById } from "../../../store/notifications/notificationsSlice";
 
-import { NotificationType } from "../../../model/notifications";
+import { NotificationType, PictureCommentNotification } from "../../../model/notifications";
 import UserName from "../../users/UserName";
 import NotificationCard from "./NotificationCard";
 
@@ -20,9 +20,15 @@ function PictureNotificationCard({notificationId}: Props) {
 
 		<NotificationCard notificationId={notificationId}>				
 			{notification => 
-				<>
-					<UserName userId={notification.from}/> commented on your picture
-				</>
+				<div className="flex items-start justify-between gap-4">
+					<div>					
+						<UserName userId={notification.from}/> commented on your picture 
+					</div>
+
+					<img src={(notification as PictureCommentNotification).picture} alt=""
+						className="w-12 aspect-square order-2"
+					/>
+				</div>
 			} 
 		</NotificationCard>
 

@@ -24,7 +24,7 @@ function NotificationCard({notificationId, children, payload}: Props) {
 		<div className="p-4 bg-veryLightGrayishBlue rounded-lg flex items-start gap-4">
 			<UserPortrait userId={notification.from} />
 
-			<div className="flex flex-wrap">
+			<div className="flex flex-wrap grow">
 				<span className="grow">
 					{children(notification)}
 				</span>
