@@ -32,6 +32,8 @@ function NotificationCard({notificationId, children, payload}: Props) {
 				<span className="text-sm text-grayishBlue w-full">
 					<TimeAgo timestamp={notification.date} />
 				</span>
+
+				{payload && payload(notification)}
 			</div>
 		</div>
 
