@@ -3,7 +3,7 @@ import { useAppSelector } from "../../store/hooks";
 
 import { selectNotificationById } from "../../store/notifications/notificationsSlice";
 import UserName from "../users/UserName";
-import NotificationCard from "./NotificationCard";
+import NotificationCard from "./cards/NotificationCard";
 
 interface Props {
 	notificationId: EntityId;

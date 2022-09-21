@@ -1,11 +1,11 @@
 import { ReactNode } from "react"
 import { EntityId } from "@reduxjs/toolkit";
-import { useAppSelector } from "../../store/hooks";
+import { useAppSelector } from "../../../store/hooks";
 
-import { MyNotification } from "../../model/notifications";
-import { selectNotificationById } from "../../store/notifications/notificationsSlice";
-import UserPortrait from "../users/UserPortrait";
-import TimeAgo from "../../components/TimeAgo";
+import { MyNotification } from "../../../model/notifications";
+import { selectNotificationById } from "../../../store/notifications/notificationsSlice";
+import UserPortrait from "../../users/UserPortrait";
+import TimeAgo from "../../../components/TimeAgo";
 
 interface Props {
 	notificationId: EntityId;
