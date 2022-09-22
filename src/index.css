@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.content-link {
+		@apply font-extrabold;
+		@apply hover:text-customBlue;
+		@apply hover:cursor-pointer;
+	}
+}

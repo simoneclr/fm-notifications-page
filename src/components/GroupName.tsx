@@ -5,7 +5,7 @@ interface Props {
 // Displays a group's name
 function GroupName({group}: Props) {
 	return (
-		<span className="font-extrabold text-customBlue">
+		<span className="content-link">
 			{group}
 		</span>
 	)
