@@ -21,12 +21,15 @@ function NotificationCard({notificationId, children, payload}: Props) {
 	return (
 		notification ?
 
-		<div className="p-4 bg-veryLightGrayishBlue rounded-lg flex items-start gap-4">
+		<div className={(notification.isNew ? "bg-veryLightGrayishBlue" : "bg-white" ) + " " +
+				"p-4 rounded-lg flex items-start gap-4"}>
 			<UserPortrait userId={notification.from} />
 
 			<div className="flex flex-wrap grow">
 				<span className="grow">
 					{children(notification)}
+
+					{notification.isNew && <RedDot/>}
 				</span>
 				
 				<span className="text-sm text-grayishBlue w-full">
@@ -42,3 +45,11 @@ function NotificationCard({notificationId, children, payload}: Props) {
 }
 
 export default NotificationCard
+
+// Displays a red dot for not-yet-read notifications
+const RedDot = () => {
+	return (
+		<span className="mx-2 h-2 inline-block aspect-square bg-customRed rounded-full">
+		</span>
+	)
+}
