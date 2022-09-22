@@ -20,7 +20,7 @@ function MessageNotificationCard({notificationId}: Props) {
 		(notification && notification.type === NotificationType.DM_RECEIVED) ?
 
 		<NotificationCard notificationId={notificationId}
-			payload={notification => 
+			payloadLarge={notification => 
 				<MessageContent message={(notification as MessageNotification).message} />
 			}
 		>				

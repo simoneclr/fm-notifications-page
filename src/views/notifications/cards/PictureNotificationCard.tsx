@@ -20,7 +20,7 @@ function PictureNotificationCard({notificationId}: Props) {
 		(notification && notification.type === NotificationType.PICTURE_COMMENT) ?
 
 		<NotificationCard notificationId={notificationId}
-			payload={notification => <PostedPicture src={(notification as PictureCommentNotification).picture}/>}
+			payloadSmall={notification => <PostedPicture src={(notification as PictureCommentNotification).picture}/>}
 		>				
 			{notification => 
 				<>					
