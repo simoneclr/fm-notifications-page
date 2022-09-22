@@ -9,12 +9,20 @@ import TimeAgo from "../../../components/TimeAgo";
 
 interface Props {
 	notificationId: EntityId;
-	children: (notification: MyNotification) => ReactNode
-	payload?: (notification: MyNotification) => ReactNode
+	children: (notification: MyNotification) => ReactNode;
+	payloadSmall?: (notification: MyNotification) => ReactNode;
+	payloadLarge?: (notification: MyNotification) => ReactNode;
 }
 
-// Displays a card containing a notifications info
-function NotificationCard({notificationId, children, payload}: Props) {
+/**
+ * Displays a card containing a notifications info
+ * @param props
+ * @param props.notificationId - The notification's id
+ * @param props.children - Function that renders the main notification message
+ * @param props.payloadSmall - Function that renders small additional to the right of the notification
+ * @param props.payloadLarge - Function that render large additional content at the bottom of the notification
+*/
+function NotificationCard({notificationId, children, payloadSmall, payloadLarge}: Props) {
 
 	const notification = useAppSelector(state => selectNotificationById(state, notificationId))
 
@@ -36,8 +44,10 @@ function NotificationCard({notificationId, children, payload}: Props) {
 					<TimeAgo timestamp={notification.date} />
 				</span>
 
-				{payload && payload(notification)}
+				{payloadLarge && payloadLarge(notification)}
 			</div>
+
+			{payloadSmall && payloadSmall(notification)}
 		</div>
 
 		: null
