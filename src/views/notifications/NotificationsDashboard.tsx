@@ -8,7 +8,7 @@ function NotificationsDashboard() {
 
 	const dispatch = useAppDispatch()
 
-	const newCount = useAppSelector(selectUnreadNotificationsCount)
+	const unreadCount = useAppSelector(selectUnreadNotificationsCount)
 
 	const handleMarkAllAsReadClick = () => {
 		dispatch(markAllNotificationsAsRead())
@@ -20,13 +20,15 @@ function NotificationsDashboard() {
 				<h1 className="text-veryDarkBlue text-lg font-extrabold">
 					Notifications
 
-					<span className="ml-3 px-3 rounded bg-customBlue text-veryLightGrayishBlue font-extrabold">
-						<span className="sr-only">
-							Unread notifications count
+					{ unreadCount > 0 && 
+						<span className="ml-3 px-3 rounded text-base bg-customBlue text-veryLightGrayishBlue font-extrabold">
+							<span className="sr-only">
+								Unread notifications count
+							</span>
+							
+							{unreadCount}
 						</span>
-						
-						{newCount}
-					</span>
+					}
 				</h1>
 
 				<button onClick={handleMarkAllAsReadClick} className="text-sm hover:text-customBlue">
