@@ -18,17 +18,17 @@ function PictureNotificationCard({notificationId}: Props) {
 	return (
 		(notification && notification.type === NotificationType.PICTURE_COMMENT) ?
 
-		<NotificationCard notificationId={notificationId}>				
-			{notification => 
-				<div className="flex items-start justify-between gap-4">
-					<div>					
-						<UserName userId={notification.from}/> commented on your picture 
-					</div>
-
-					<img src={(notification as PictureCommentNotification).picture} alt=""
-						className="w-12 aspect-square order-2"
-					/>
-				</div>
+		<NotificationCard notificationId={notificationId}
+			payload={notification =>
+				<img src={(notification as PictureCommentNotification).picture} alt=""
+					className="w-12 aspect-square"
+				/>
+			}
+		>				
+			{ notification =>
+				<>					
+					<UserName userId={notification.from}/> commented on your picture 
+				</>
 			} 
 		</NotificationCard>
 
