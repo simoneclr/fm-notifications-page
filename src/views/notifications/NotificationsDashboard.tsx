@@ -1,12 +1,18 @@
-import { useAppSelector } from "../../store/hooks"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
 
-import { selectUnreadNotificationsCount } from "../../store/notifications/notificationsSlice"
+import { markAllNotificationsAsRead, selectUnreadNotificationsCount } from "../../store/notifications/notificationsSlice"
 import NotificationsList from "./NotificatinsList"
 
 // Displays the main Notifications dashboard
 function NotificationsDashboard() {
 
+	const dispatch = useAppDispatch()
+
 	const newCount = useAppSelector(selectUnreadNotificationsCount)
+
+	const handleMarkAllAsReadClick = () => {
+		dispatch(markAllNotificationsAsRead())
+	}
 
 	return (
 		<main className="bg-white mx-auto p-4 lg:p-8 lg:rounded-xl lg:shadow-xl">
@@ -23,7 +29,9 @@ function NotificationsDashboard() {
 					</span>
 				</h1>
 
-				<span>Mark all as read</span>
+				<button onClick={handleMarkAllAsReadClick} className="text-sm hover:text-customBlue">
+					Mark all as read
+				</button>
 			</div>
 
 			<NotificationsList />

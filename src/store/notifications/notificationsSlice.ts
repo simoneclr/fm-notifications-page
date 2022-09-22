@@ -1,4 +1,4 @@
-import { createEntityAdapter, createSelector, createSlice } from "@reduxjs/toolkit";
+import { AnyAction, createEntityAdapter, createSelector, createSlice, EntityId, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 import { MyNotification } from "../../model/notifications";
@@ -10,10 +10,48 @@ const notificationsAdapter = createEntityAdapter<MyNotification>({
 const notificationsSlice = createSlice({
 	name: "notifications",
 	initialState: notificationsAdapter.getInitialState(),
-	reducers: {}
+	reducers: {
+		notificationRead: {
+			reducer: (
+				state,
+				action: PayloadAction<{notificationId: EntityId}>
+			) => {
+				const {notificationId} = action.payload
+				
+				notificationsAdapter.updateOne(state, {
+					id: notificationId,
+					changes: {
+						isNew: false
+					}
+				})
+			},
+			prepare: (notificationId: EntityId) => {
+				return {
+					payload: {
+						notificationId
+					}
+				}
+			}
+		}
+	}
 })
 
 export default notificationsSlice.reducer
+
+// Exported Actions
+export const {
+	notificationRead
+} = notificationsSlice.actions
+
+// Thunk function that marks all notifications as read
+export const markAllNotificationsAsRead = (): ThunkAction<void, RootState, unknown, AnyAction> =>
+	(dispatch, getState) => {
+		getState().notifications.ids.forEach(id => {
+			if (getState().notifications.entities[id]?.isNew) {
+				dispatch(notificationRead(id))
+			}
+		})
+	}
 
 export const {
 	selectAll: selectAllNotificatoins,
