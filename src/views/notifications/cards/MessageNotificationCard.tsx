@@ -1,7 +1,8 @@
 import { EntityId } from "@reduxjs/toolkit"
-import { MessageNotification, NotificationType } from "../../../model/notifications"
 import { useAppSelector } from "../../../store/hooks"
 
+import MessageContent from "../../../components/MessageContent"
+import { MessageNotification, NotificationType } from "../../../model/notifications"
 import { selectNotificationById } from "../../../store/notifications/notificationsSlice"
 import UserName from "../../users/UserName"
 import NotificationCard from "./NotificationCard"
@@ -20,9 +21,7 @@ function MessageNotificationCard({notificationId}: Props) {
 
 		<NotificationCard notificationId={notificationId}
 			payload={notification => 
-				<p className="mt-2 p-2 text-sm bg-white border-2 rounded">
-					{(notification as MessageNotification).message}
-				</p>
+				<MessageContent message={(notification as MessageNotification).message} />
 			}
 		>				
 			{notification => 

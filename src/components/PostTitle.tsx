@@ -5,7 +5,7 @@ interface Props {
 // Displays a post's title
 function PostTitle({post}: Props) {
 	return (
-		<span className="font-extrabold">
+		<span className="content-link">
 			{post}
 		</span>
 	)

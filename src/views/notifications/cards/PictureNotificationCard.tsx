@@ -5,6 +5,7 @@ import { selectNotificationById } from "../../../store/notifications/notificatio
 import { NotificationType, PictureCommentNotification } from "../../../model/notifications";
 import UserName from "../../users/UserName";
 import NotificationCard from "./NotificationCard";
+import PostedPicture from "../../../components/PostedPicture";
 
 interface Props {
 	notificationId: EntityId
@@ -19,11 +20,7 @@ function PictureNotificationCard({notificationId}: Props) {
 		(notification && notification.type === NotificationType.PICTURE_COMMENT) ?
 
 		<NotificationCard notificationId={notificationId}
-			payload={notification =>
-				<img src={(notification as PictureCommentNotification).picture} alt=""
-					className="w-12 aspect-square"
-				/>
-			}
+			payload={notification => <PostedPicture src={(notification as PictureCommentNotification).picture}/>}
 		>				
 			{ notification =>
 				<>					
