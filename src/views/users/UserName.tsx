@@ -14,7 +14,7 @@ function UserName({userId}: Props) {
 	return (
 		user ? 
 
-		<span className="text-veryDarkBlue font-extrabold">
+		<span className="text-veryDarkBlue content-link">
 			{user.name}
 		</span>
 
