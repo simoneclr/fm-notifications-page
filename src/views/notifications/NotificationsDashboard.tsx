@@ -15,9 +15,9 @@ function NotificationsDashboard() {
 	}
 
 	return (
-		<main className="bg-white mx-auto p-4 lg:p-8 lg:rounded-xl lg:shadow-xl">
-			<div className="flex gap-4 mb-4 items-baseline justify-between">
-				<h1 className="text-veryDarkBlue text-lg font-extrabold">
+		<main className="max-w-2xl bg-white mx-auto p-4 md:p-8 md:rounded-xl md:shadow-xl">
+			<div className="flex gap-4 mb-4 md:mb-8 items-baseline justify-between">
+				<h1 className="text-veryDarkBlue text-lg md:text-xl font-extrabold">
 					Notifications
 
 					{ unreadCount > 0 && 
