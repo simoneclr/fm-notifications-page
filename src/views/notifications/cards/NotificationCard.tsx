@@ -30,7 +30,7 @@ function NotificationCard({notificationId, children, payloadSmall, payloadLarge}
 		notification ?
 
 		<div className={(notification.isNew ? "bg-veryLightGrayishBlue" : "bg-white" ) + " " +
-				"p-4 rounded-lg flex items-start gap-4"}>
+				"p-3 rounded-lg flex items-start gap-3"}>
 			<UserPortrait userId={notification.from} />
 
 			<div className="flex flex-wrap grow">

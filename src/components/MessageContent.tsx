@@ -7,7 +7,7 @@ interface Props {
 // That is out of the scope of this project, so it receives the message content directly
 function MessageContent ({message}: Props) {
 	return (
-		<p className="mt-2 p-2 text-sm bg-white border-2 rounded hover:cursor-pointer hover:bg-lightGrayishBlue">
+		<p className="mt-3 p-3 bg-white border-2 rounded hover:cursor-pointer hover:bg-lightGrayishBlue">
 			{message}
 		</p>
 	)
